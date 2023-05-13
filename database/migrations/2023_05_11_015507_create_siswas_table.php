@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("Nama_Siswa");
             $table->string("Tempat_lahir");
             $table->date("Tanggal_Lahir");
-            $table->string("");
+            $table->string("Orang_tua/wali");
 
             $table->timestamps();
         });
