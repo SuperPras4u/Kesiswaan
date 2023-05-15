@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('page2', function () {
-    return view('page2git');
+    return view('page2');
 });

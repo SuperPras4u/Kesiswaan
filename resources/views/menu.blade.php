@@ -8,7 +8,7 @@
     <li>
         <a href="{{url('page2')}}">
             <i class="nc-icon nc-diamond"></i>
-            <p>page 2</p>
+            <p>Absen</p>
         </a>
     </li>
     <li>
