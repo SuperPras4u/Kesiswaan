@@ -9,13 +9,17 @@
       </tr>
     </thead>
     <tbody>
-        @foreach ($Class as $item)
+        @foreach ($class as $item)
         <tr>
             <th scope="row">1</th>
             <td>{{ $item->Nama_Kelas }}</td>
             <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{ $item->id }}">
                 Profile
               </button></td>
+              <td><button data-bs-target="#modalubah-{{ $item->id }}"
+                data-bs-toggle="modal">ubah</button></td>
+                 <td><button data-bs-target="#modalhapus-{{ $item->id }}"
+                  data-bs-toggle="modal">Hapus</button></td> 
           </tr>        
         @endforeach
     
@@ -27,7 +31,7 @@
 
   
   <!-- Modal -->
-  @foreach ($Class as $item1)
+  @foreach ($class as $item1)
   <div class="modal fade" id="staticBackdrop-{{ $item1->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -110,3 +114,85 @@
         </div>
     </div>
 </div>
+
+{{-- modalubah --}}
+@foreach ($class as $ubah)
+    
+
+ <div class="modal fade" id="modalubah-{{ $ubah->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Jurusan</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form action="{{ url('/editkelas/' . $ubah->id) }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Nama Kelas</label>
+                          <input type="Nama" name="Nama_Kelas" class="form-control" id="exampleInputNama" placeholder="Nama" value="{{ $ubah->Nama_Kelas }}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Jurusan</label>
+                        <select class="form-select" id="id_Jurusan" name="id_Jurusan"
+                            aria-label="Default select example">
+                            <option  value="{{ $ubah->id_jurusan }}" selected>{{ $ubah->Jurusan->Nama_Jurusan }}</option>
+                            @foreach ($Jurusan as $row)
+                                <option value=" {{ $row->id }} ">{{ $row->Nama_Jurusan }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Wali Kelas</label>
+                        <select class="form-select" id="id_guru" name="id_guru"
+                            aria-label="Default select example">
+                            <option value="{{ $ubah->id_guru }}" selected>{{ $ubah->guru->Nama_Guru }}</option>
+                            @foreach ($teach as $row)
+                                <option value=" {{ $row->id }} ">{{ $row->Nama_Guru }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                     
+                     
+                  
+                  <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                  </form>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+@endforeach
+
+{{-- modalhpus --}}
+
+@foreach ($class as $hapus)
+<div class="modal fade" id="modalhapus-{{ $hapus->id }}" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus Data Kategori</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin menghapus data kategori "{{ $hapus->Nama_Kelas }}"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <a href="{{ url('/hapuskelas/' . $hapus->id) }}" class="btn btn-danger">Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach 

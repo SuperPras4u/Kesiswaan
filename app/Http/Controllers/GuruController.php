@@ -17,4 +17,21 @@ class GuruController extends Controller
         Guru::create($request->all());
         return redirect()->back();
     }
+
+    public function update(Request $request, $id)
+    {
+        $guru = Guru::find($id);
+        $guru->Nama_Guru = $request->input('Nama_Guru');
+        $guru->Alamat = $request->input('Alamat');
+        $guru->save();
+
+        return redirect()->back();
+    }
+
+    public function destroy($id)
+    {
+        $guru = Guru::find($id);
+        $guru->delete();
+        return redirect()->back()->with('success', 'Jurusan berhasil dihapus.');
+    }
 }

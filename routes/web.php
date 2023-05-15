@@ -20,7 +20,10 @@ Route::get('/Siswa', function () {
     return view('siswa.index');
 });
 
-<<<<<<< HEAD
+route::get('/', function() {
+    return view('dashboard.dash');
+});
+
 Route::get('page2', function () {
     return view('page2git');
 });
@@ -34,8 +37,17 @@ Route::post('/tambahjurusan', [JurusanController::class, 'tambahjurusan'])->name
 Route::get('/Menukelas', [ClassKelasController::class, 'kelas'])->name('kelas');
 Route::post('/tambahkelas', [ClassKelasController::class, 'tambahkelas'])->name('tambahkelas');
 
-=======
-// Route::get('page2', function () {
-//     return view('page2git');
-// });
->>>>>>> 261cb84fadd5283a0495d8d293561855294de1b0
+
+
+Route::post('/editJurusan/{id}', [JurusanController::class, 'update']);
+ Route::get('/hapusJurusan/{id}', [JurusanController::class, 'destroy'])->name('destroy');
+//  Route::post('/hapusJurusan/{id}', [JurusanController::class, 'destroy'])->name('hapus.jurusan');
+// Route::delete('/hapusjurusan/{id}', 'JurusanController@destroy')->name('hapus.jurusan');
+
+Route::post('/editkelas/{id}', [ClasskelasController::class, 'update']);
+ Route::get('/hapuskelas/{id}', [ClassKelasController::class, 'destroy'])->name('destroy');
+
+ Route::post('/editguru/{id}', [GuruController::class, 'update']);
+ Route::get('/hapusguru/{id}', [GuruController::class, 'destroy'])->name('destroy');
+
+
