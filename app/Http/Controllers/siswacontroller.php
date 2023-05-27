@@ -36,14 +36,50 @@ class siswacontroller extends Controller
      */
     public function store(Request $request)
     {
-        $valid = $request->validate([
-            'NIS' => 'required|max:6|unique:siswas',
-            'NISN' => 'required|max:10|unique:siswas',
-            'Nama_Siswa' => 'required|max:30|unique:siswas',
-            'Jurusan' => 'required|integer|gte:0',
-            'Kelas' => 'required|numeric|gte:0',
-            'Absensi' => 'required|numeric|gte:0',
+
+        siswa::create([
+            'NISN' => $request->NISN,
+            'NIS' => $request->NIS,
+            'Nama_Siswa' => $request->Nama_Siswa,
+            'Jenis_kelamin' => $request->Jenis_kelamin,
+            'Agama' => $request->Agama,
+            'Sekolah_Asal' => $request->Sekolah_Asal,
+            'Tempat_Lahir' => $request->Tempat_Lahir,
+            'Tanggal_Lahir' => $request->Tanggal_Lahir,
+            'Usia' => $request->Usia,
+            'Diterima_Pada' => $request->Diterima_Pada,
+            'No_Pendaftaran' => $request->No_Pendaftaran,
+            'NIK_Siswa' => $request->NIK_Siswa,
+            'no_akta' => $request->no_akta,
+            'tinggal_dengan' => $request->tinggal_dengan,
+            'Tinggi_Badan' => $request->Tinggi_Badan,
+            'Berat_Badan' => $request->Berat_Badan,
+            'absensi' => $request->absensi,
+            'Poin_Pelanggaran' => $request->Poin_Pelanggaran,
+            'Foto' => $request->Foto,
+            'Alamat' => $request->Alamat,
+            'jalan' => $request->jalan,
+            'kelurahan' => $request->kelurahan,
+            'RT' => $request->RT,
+            'RW' => $request->RW,
+            'Kecamatan' => $request->Kecamatan,
+            'Kabupaten' => $request->Kabupaten,
+            'Provinsi' => $request->Provinsi,
+            'Kode_Pos' => $request->Kode_Pos,
+            'Status_dalam_Keluarga' => $request->Status_dalam_Keluarga,
+            'anak_ke' => $request->anak_ke,
+            'Jumlah_Saudara' => $request->Jumlah_Saudara,
         ]);
+
+        // $valid = $request->validate([
+        //     'NIS' => 'required|max:6|unique:siswas',
+        //     'NISN' => 'required|max:10|unique:siswas',
+        //     'Nama_Siswa' => 'required|max:30|unique:siswas',
+        //     'Jenis_kelamin' => 'required|max:20',
+        //     // 'Jurusan' => 'required|integer|gte:0',
+        //     // 'Kelas' => 'required|numeric|gte:0',
+        //     // 'Absensi' => 'required|numeric|gte:0',
+        // ]);
 
     }
 

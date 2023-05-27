@@ -11,6 +11,13 @@
                 <!-- <div class="badge badge-info badge-pill">2</div> -->
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('Ortu')}}">
+                <i class="mdi mdi-view-quilt menu-icon"></i>
+                <span class="menu-title">Orang Tua Siswa</span>
+                <!-- <div class="badge badge-info badge-pill">2</div> -->
+            </a>
+        </li>
         <li class="nav-item sidebar-category">
             <p>Components</p>
 

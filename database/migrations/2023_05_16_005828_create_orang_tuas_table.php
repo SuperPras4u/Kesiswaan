@@ -14,18 +14,18 @@ return new class extends Migration
         Schema::create('orang_tuas', function (Blueprint $table) {
             $table->id();
             //ayah
-            $table->bigInteger('NIK_Ayah')->unique();
-            $table->string('Nama_Ayah', 50);
-            $table->string('Pekerjaan_Ayah');
-            $table->string('Pendidikan_orang_tua');
-            $table->bigInteger('No_Telepon');
+            $table->bigInteger('NIK_Ayah')->unique()->nullable();
+            $table->string('Nama_Ayah', 50)->unique()->nullable();
+            $table->string('Pekerjaan_Ayah', 50)->nullable();
+            $table->string('Pendidikan_Ayah', 30)->nullable();
+            $table->string('No_Telepon_Ayah', 13)->unique()->nullable();
 
             //ibu
-            $table->bigInteger('NIK_Ibu')->unique();
-            $table->string('Nama_Ibu', 50);
-            $table->string('Pekerjaan_Ibu');
-            $table->string('Pendidikan_Ibu');
-            $table->bigInteger('No_Telepon_Ibu');
+            $table->bigInteger('NIK_Ibu')->unique()->nullable();
+            $table->string('Nama_Ibu', 50)->unique()->nullable();
+            $table->string('Pekerjaan_Ibu', 50)->nullable();
+            $table->string('Pendidikan_Ibu', 30)->nullable();
+            $table->string('No_Telepon_Ibu', 13)->unique()->nullable();
             $table->timestamps();
         });
     }
