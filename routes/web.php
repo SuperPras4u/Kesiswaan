@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\CobacobaController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ImportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +14,45 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/Siswa', function () {
-    return view('siswa.index');
+// Route::get('/siswa', function () {
+//     return view('siswa.index');
+// });
+Route::get('/', function () {
+    return view('dashboard.dash');
+});
+Route::get('/absen', function () {
+    return view('absen.index');
+});
+Route::get('/guru', function () {
+    return view('guru.index');
 });
 
-<<<<<<< HEAD
-Route::get('page2', function () {
-    return view('page2');
-});
-=======
+
+
+// Route::post('/import', [ImportController::class, 'import'])->name('import');
+
+
+//siswa
+Route::get('/siswa', function () {return view('cobacoba.index');});
+Route::post('/tambah/siswa', [CobacobaController::class, "create"])->name('coba');
+
+Route::post('/siswa', function () {return view('cobacoba.index');});
+// Route::post('/tambah/siswa', [CobacobaController::class, "import"])->name('coba');
+
+//import
+Route::post('users-import', [CobacobaController::class, 'import'])->name('user.import');
+//export
+// Route::post('index-export', [CobacobaController::class, "export"])->name('index_import');
+
+
+
+
+
+
+
+// Route::get('/siswa', function () {
+//     return view('siswa.index');
+// });
 // Route::get('page2', function () {
 //     return view('page2git');
 // });
->>>>>>> 261cb84fadd5283a0495d8d293561855294de1b0

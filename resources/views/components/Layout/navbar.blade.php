@@ -6,7 +6,7 @@
                 <span class="mdi mdi-menu"></span>
             </button>
             <div class="navbar-brand-wrapper">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="{{asset('images/logo.svg')}}"
+                <a class="navbar-brand brand-logo" href="index.html"><img src="{{asset('images/Lsmkn.png')}}"
                         alt="logo"></a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{('images/logo-mini.svg')}}"
                         alt="logo"></a>
@@ -37,7 +37,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a class="dropdown-item preview-item">
+                        {{--  <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
                                 <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
                             </div>
@@ -60,7 +60,7 @@
                                     Upcoming board meeting
                                 </p>
                             </div>
-                        </a>
+                        </a>  --}}
                     </div>
                 </li>
                 <li class="nav-item dropdown mr-2">
