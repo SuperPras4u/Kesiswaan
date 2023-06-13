@@ -11,11 +11,9 @@
                         <h4 class="card-title">Daftar Siswa</h4>
                     </div>
                     <div class="col-6" align="right" ;">
-                        <button type="" class="btn-success btn-sm">
-                            <a href="{{route('tambah_siswa')}}" class="nav-link icon-link">
-                                <i class="mdi mdi-plus-circle-outline"></i>
-                            </a>
-                        </button>
+                        <a href="{{route('tambah_siswa')}}" class="btn btn-success" role="button">
+                            Tambah Data
+                        </a>
                     </div>
                 </div>
 
@@ -83,11 +81,14 @@
 
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
                                         <i class="mdi mdi-account"></i>
-                                    </button>
+                                    </button> -->
 
+                                    <a href="{{route('profile', $siswa->NISN)}}" type="button"
+                                        class="btn btn-primary"><i class="mdi mdi-account"></i>
+                                    </a>
                                     <button type="button" class="btn btn-outline-info"><i
                                             class="mdi mdi-pencil"></i></button>
 
@@ -99,6 +100,7 @@
                                                 class="mdi mdi-trash-can-outline"></i> </button>
                                     </form>
                                 </td>
+                                <td><img src="uploads/{{$siswa->Foto}}" alt="images"></td>
                             </tr>
 
                             @endforeach
@@ -135,6 +137,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
                     </div>
                 </div>
             </div>

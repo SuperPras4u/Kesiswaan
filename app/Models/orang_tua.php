@@ -21,4 +21,10 @@ class orang_tua extends Model
         'Pendidikan_Ibu',
         'No_Telepon_Ibu',
     ];
+
+    public function siswas()
+    {
+        return $this->hasMany(Siswa::class);
+    }
+
 }

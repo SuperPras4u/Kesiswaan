@@ -25,36 +25,40 @@
         <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="mdi mdi-palette menu-icon"></i>
-                <span class="menu-title">Guru</span>
+                <span class="menu-title">Jurusan</span>
                 <i class="menu-arrow"></i>
             </a>
+
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/ui-features/buttons.html">kelas</a>
                     </li>
                 </ul>
             </div>
+
         </li> -->
         <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="guru">
                 <i class="mdi mdi-view-headline menu-icon"></i>
                 <span class="menu-title">Guru</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="{{ route('jurusan') }}">
                 <i class="mdi mdi-chart-pie menu-icon"></i>
-                <span class="menu-title">Charts</span>
+                <span class="menu-title">Jurusan</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="{{route('kelas')}}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Kelas</span>
             </a>
         </li>
-        <li class="nav-item">
+        <!--   <li class="nav-item">
             <a class="nav-link" href="pages/icons/mdi.html">
                 <i class="mdi mdi-emoticon menu-icon"></i>
                 <span class="menu-title">Icons</span>
@@ -87,8 +91,8 @@
                             Lockscreen </a></li>
                 </ul>
             </div>
-        </li>
-        <li class="nav-item sidebar-category">
+        </li> -->
+        <!-- <li class="nav-item sidebar-category">
             <p>Apps</p>
             <span></span>
         </li>
@@ -102,6 +106,6 @@
             <a class="nav-link" href="http://www.bootstrapdash.com/demo/spica/template/">
                 <button class="btn bg-danger btn-sm menu-title">Upgrade to pro</button>
             </a>
-        </li>
+        </li> -->
     </ul>
 </nav>

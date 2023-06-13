@@ -38,6 +38,7 @@
                     {{-- end navbar --}}
                     {{ $slot }}
                 </div>
+
                 <x-layout.footer />
             </div>
         </div>
