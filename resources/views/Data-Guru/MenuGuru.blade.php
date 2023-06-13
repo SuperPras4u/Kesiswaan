@@ -2,11 +2,40 @@
 <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
-<table class="table">
-    <thead>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <h4 class="card-title">Daftar Siswa</h4>
+                </div>
+                <div class="col-6" align="right" ;">
+                    <button type="" class="btn-success btn-sm" data-bs-target="#modaltambah" data-bs-toggle="modal"><i class="mdi mdi-plus-circle-outline"></i>
+                    </button>
+                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search Here..." aria-label="search"
+                            aria-describedby="search">
+                        <button type="button" id="search-button" class="btn-secondary"><i
+                                class="mdi mdi-search-web"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            {{-- hagvdjav --}}
+            <div class=" table-responsive pt-3">
+                <table class="table table-bordered border-primary">
+                    <thead class="table-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nama Guru</th>
+        <th scope="col">profile</th>
+        <th scope="col">ubah</th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +53,10 @@
     
     </tbody>
   </table>
+</div>
+</div>
+</div>
+</div>
 
 
   <!-- Button trigger modal -->
@@ -60,8 +93,7 @@
 
   {{-- modaltambah --}}
 
-  <button type="button" class="btn btn-success" data-bs-target="#modaltambah"
-  data-bs-toggle="modal">Tambah +</button>
+
 
 
    <div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

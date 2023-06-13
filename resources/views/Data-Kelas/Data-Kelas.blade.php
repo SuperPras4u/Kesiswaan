@@ -1,3 +1,5 @@
+<x-layout.app>
+
 <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -192,7 +194,8 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                 <a href="{{ url('/hapuskelas/' . $hapus->id) }}" class="btn btn-danger">Hapus</a>
             </div>
-        </div>
+        
     </div>
 </div>
 @endforeach 
+</x-layout.app>
