@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class guru extends Model
 {
     use HasFactory;
+
+    protected $table = 'gurus';
+
+    protected $guarded = ['id'];
+
+    public function getRouteKeyName(){
+        return 'NIP';
+    }
+
 }

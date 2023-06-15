@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 class usercontroller extends Controller
 {
 
+    private $no_user = '';
+
     public function profile()
     {
         $profile = Auth::user();
@@ -33,8 +35,8 @@ class usercontroller extends Controller
     public function login_user(Request $request)
     {
         $credentials = $request->validate([
-            'username' => 'required|min:6|max:20',
-            'password' => 'required|min:8|max:16',
+            'username' => 'required',
+            'password' => 'required|max:60',
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -52,17 +54,26 @@ class usercontroller extends Controller
         $validatedData = $request->validate([
             'no_user' => 'nullable|unique:users',
             'username' => 'required|unique:users',
-            'password' => 'required|unique:users|min:6',
+            'password' => 'required|max:60',
             'jenis_akun' => 'required',
         ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
-        $user = User::create([
+//         $noUser = User::latest()->value('no_user');
+// if (is_null($no_user)) {
+//     $
+//     # code...
+// }
+        // dd(strlen($validatedData['password']));
+        User::create($validatedData);
 
-            'no_user' => isset($validatedData['no_user']) ? $validatedData['no_user'] : null,
-            'username' => $validatedData['username'],
-            'password' => Hash::make($validatedData['password']),
-            'jenis_akun' => $validatedData['jenis_akun'],
-        ]);
+        // $user = User::create([
+
+        //     'no_user' => isset($validatedData['no_user']) ? $validatedData['no_user'] : null,
+        //     'username' => $validatedData['username'],
+        //     'password' => Hash::make($validatedData['password']),
+        //     'jenis_akun' => $validatedData['jenis_akun'],
+        // ]);
 
         // Buat akun pengguna baru
         // $user = new User;
@@ -79,8 +90,19 @@ class usercontroller extends Controller
         // $siswa->save();
 
         // Redirect ke halaman login setelah berhasil mendaftar
-        return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silakan login.');
+        return redirect()->route('sign')->with('success', 'Akun berhasil dibuat. Silakan login.');
 
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/Authentication/Login');
     }
 
 }

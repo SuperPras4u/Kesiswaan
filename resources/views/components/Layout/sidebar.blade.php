@@ -101,11 +101,13 @@
                 <i class="mdi mdi-file-document-box-outline menu-icon"></i>
                 <span class="menu-title">Documentation</span>
             </a>
-        </li>
+        </li>-->
         <li class="nav-item">
-            <a class="nav-link" href="http://www.bootstrapdash.com/demo/spica/template/">
-                <button class="btn bg-danger btn-sm menu-title">Upgrade to pro</button>
-            </a>
-        </li> -->
+            <form action="{{route('signout')}}" method="post">
+                @csrf
+                <button class="btn bg-danger btn-sm menu-title">Log Out</button>
+            </form>
+
+        </li>
     </ul>
 </nav>

@@ -10,6 +10,8 @@ class siswa extends Model
 {
     use HasFactory;
 
+    protected $table = 'siswas';
+
     protected $guarded = ['id'];
 
     public function getRouteKeyName()

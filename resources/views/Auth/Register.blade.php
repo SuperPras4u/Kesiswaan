@@ -35,7 +35,7 @@
                                     <div class="mb-3">
                                         <label for="username" class="text-light">Username</label>
                                         <input type="text" name="username" value="{{old('username')}}"
-                                            class="form-control text-center text-light" placeholder="Username"/>
+                                            class="form-control text-center text-light" placeholder="Username" />
                                         @error('username')
                                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                                             {{ $message }}
@@ -68,15 +68,13 @@
                                 <div class="mt-3">
                                     <!-- <a class="btn btn-block btn-success btn-lg font-weight-medium"
                                         href="{{route('Register_User')}}">Login</a> -->
-                                    <button type="submit" class="btn btn-success btn-block">Daftar</button>
+                                    <button class="btn btn-success btn-block">Daftar</button>
                                 </div>
                                 <div class="mt-3">
                                     <a class="btn btn-block btn-info btn-lg font-weight-medium"
                                         href="{{route('sign')}}">Batal</a>
                                 </div>
-                                <div class="mt-3 text-center">
-                                    <a href="#" class="auth-link text-white"></a>
-                                </div>
+
                             </form>
                         </div>
                     </div>

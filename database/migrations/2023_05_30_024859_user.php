@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('no_user')->unique()->nullable();
             $table->string('username')->unique();
-            $table->string('password', 6)->unique();
+            $table->string('password', 60);
             $table->string('jenis_akun');
             $table->timestamps();
         });

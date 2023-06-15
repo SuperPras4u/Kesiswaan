@@ -67,41 +67,47 @@
 
 
                                     <!-- //username -->
-                                    <div class="mb-3">
-                                        <label for="username" class="text-light">Username</label>
-                                        <input type="text" name="Username" value="{{old('Username')}}" class="form-control text-center text-light @error('username')
-                                                            is-invalid
+                                    <div class="form-group">
+
+
+                                        <div class="mb-3">
+                                            <label class="text-light" for="username">Username</label>
+                                            <input type="text" name="username" value="{{old('username')}}" class="form-control text-center text-light @error('username')
+                                        is-invalid
                                                         @enderror" placeholder="Username" autofocus required />
-                                        @error('username')
-                                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                            {{ $message }}
+                                            @error('username')
+                                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
-                                        @enderror
-                                    </div>
 
-                                    <!-- //password -->
-                                    <div class="mb-3">
+                                        <!-- //password -->
+                                        <div class="mb-3">
 
-                                        <label for="Password" class="text-light">Password</label>
-                                        <input type="password" name="Password" class="form-control text-center text-light @error('password')
+                                            <label class="text-light" for="password">Password</label>
+                                            <input type="password" name="password" class="form-control text-center text-light @error('password')
                                                             is-invalid
-                                                        @enderror" id="Password" placeholder="********" required />
-                                        @error('password')
-                                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                            {{ $message }}
+                                                        @enderror" placeholder="********" required />
+                                            @error('password')
+                                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
-                                        @enderror
                                     </div>
                                 </div>
                                 <!-- //button -->
                                 <div class="mt-3">
-                                    <a class="btn btn-block btn-success btn-lg font-weight-medium"
-                                        href="{{route('Login_User')}}">Login</a>
+
+                                    <button type="submit"
+                                        class="btn btn-success btn-lg btn-block font-weight-medium">Login</button>
                                 </div>
-                                <div class="mt-3">
+                                <div class=" mt-3">
                                     <a class="btn btn-block btn-info btn-lg font-weight-medium"
                                         href="{{route('Register')}}">Register</a>
                                 </div>
+
                                 <div class="mt-3 text-center">
                                     <a href="#" class="auth-link text-white"></a>
                                 </div>

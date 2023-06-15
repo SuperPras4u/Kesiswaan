@@ -19,10 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('dashboard.dash');
-});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('dashboard.dash');
+    });
+    Route::post('authentiaction/logout', [usercontroller::class, "logout"])->name('signout');
 
+});
 //route jurusan
 Route::get('/jurusan', [jurusancontroller::class, "index"])->name('jurusan');
 
