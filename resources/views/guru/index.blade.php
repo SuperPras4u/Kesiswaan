@@ -56,29 +56,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach( $siswas as $siswa )
+                            @foreach( $gurus as $guru )
                             <tr>
                                 <td>
                                     {{ $loop->iteration }}
                                 </td>
                                 <td>
-                                    {{ $siswa-> NISN }}
+                                    {{ $guru-> NISN }}
                                 </td>
                                 <td>
-                                    {{ $siswa->Nama_Siswa }}
+                                    {{ $guru->Nama_Siswa }}
                                 </td>
 
                                 <td align="center">{{$siswa->Jenis_kelamin}}</td>
                                 <td>
-                                    {{ $siswa->Jurusan }}
+                                    {{ $guru->Jurusan }}
                                 </td>
                                 <td>
-                                    {{ $siswa->Kelas }}
+                                    {{ $guru->Kelas }}
                                 </td>
-                                <td>kelurahan {{$siswa->kelurahan}},
-                                    RT.{{ $siswa->RT}}/RW.{{ $siswa->RW }},Kecamatan
-                                    {{ $siswa->Kecamatan }}, Kabupaten
-                                    {{ $siswa->Kabupaten }}, Provinsi {{ $siswa->Provinsi }} </td>
+                                <td>kelurahan {{$guru->kelurahan}},
+                                    RT.{{ $guru->RT}}/RW.{{ $guru->RW }},Kecamatan
+                                    {{ $guru->Kecamatan }}, Kabupaten
+                                    {{ $guru->Kabupaten }}, Provinsi {{ $guru->Provinsi }} </td>
 
                                 <td>
                                     <!-- Button trigger modal -->
@@ -105,4 +105,11 @@
                             </tr>
 
                             @endforeach
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </x-layout.app>

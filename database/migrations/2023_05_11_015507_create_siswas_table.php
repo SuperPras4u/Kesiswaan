@@ -34,7 +34,7 @@ return new class extends Migration
             $table->integer("Berat_badan")->default(0);
             // $table->string("absensi")->default("H");
             // $table->bigInteger("Poin_Pelanggaran")->default(0);
-            $table->string("Foto")->unique();
+            $table->string("Foto")->unique()->nullable();
             // $table->string("Kelas"); (id siswa di letakan pada table kelas agar relasi menjadi satu kelas banyak siswa)
             // $table->string("Id_Jurusan", 50); (id_siswa di table jurusan agar relasi menjadi one to many)
 

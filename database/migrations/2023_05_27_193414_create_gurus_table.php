@@ -21,7 +21,9 @@ return new class extends Migration
             $table->date('Tanggal_Lahir');
             $table->string('Agama');
             $table->string('Jenis_Kelamin');
+            $table->integer('Usia');
             $table->string('Alamat')->nullable();
+            $table->string('jalan')->nullable();
             $table->string('Desa_Kel');
             $table->integer('RT');
             $table->integer('RW');
@@ -31,16 +33,16 @@ return new class extends Migration
             $table->integer('Kode_Pos')->nullable();
             $table->string('Pendidikan_Terakhir');
             $table->string('Gelar')->unique()->nullable();
-            $table->string('Kewarganegaran');
-            $table->string('Status_Pernikahan');
+            $table->string('Kewarganegaraan');
+            $table->string('Status_Pernikahan')->nullable();
             $table->string('Pangkat')->nullable();
             $table->string('Jabatan')->nullable();
             $table->date('Tanggal_Masuk')->nullable();
             $table->string('Status_kep')->nullable();
-            $table->BigInteger('No_Telepon');
-            $table->string('email');
-            $table->string('Foto');
-            $table->foreignId('kelas_id');
+            $table->BigInteger('No_Telepon')->nullable();
+            $table->string('email')->nullable();
+            $table->string('Foto')->nullable();
+            $table->foreignId('kelas_id')->nullable();
             $table->timestamps();
         });
     }

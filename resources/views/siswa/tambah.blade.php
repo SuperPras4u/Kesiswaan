@@ -155,7 +155,7 @@
 
 
                                     <div class="mb-3">
-                                        <label for="jenis-kelamin" class="form-label">Jenis Kelamin</label>
+                                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                         <select name="Jenis_kelamin" class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
                                             <option value=" Pilih" selected disabled>--Pilih--</option>
@@ -200,12 +200,6 @@
                                         <input type="text" name="kelurahan" value="" placeholder="" class="form-control"
                                             value="{{old('kelurahan')}}">
                                     </div>
-
-
-
-
-
-
                                     <div class="mb-3">
                                         <label for="Kabupaten" class="form-label">Kabupaten</label>
                                         <input type="text" name="Kabupaten" value="{{old('Kabupaten')}}" placeholder=""

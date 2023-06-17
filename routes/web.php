@@ -34,6 +34,9 @@ Route::get('/kelas', [kelascontroller::class, "index"])->name('kelas');
 
 //route guru
 Route::get('/guru', [gurucontroller::class, "index"])->name('guru');
+Route::get('/guru/tambah', [gurucontroller::class, "create"])->name('tambah_guru');
+Route::post('/guru/tambah', [gurucontroller::class, "store"])->name('simpan_guru');
+Route::delete('/guru/delete/{Nama_Lengkap}', [gurucontroller::class, "destroy"])->name('guru_del');
 
 //route siswa
 Route::get('/siswa', [siswacontroller::class, "index"])->name('siswa');

@@ -41,7 +41,7 @@
 
         </li> -->
         <li class="nav-item">
-            <a class="nav-link" href="guru">
+            <a class="nav-link" href="{{route('guru')}}">
                 <i class="mdi mdi-view-headline menu-icon"></i>
                 <span class="menu-title">Guru</span>
             </a>
