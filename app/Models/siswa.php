@@ -21,4 +21,18 @@ class siswa extends Model
     {
         return $this->belongsTo(orang_tua::class, 'orang_tua_id', 'id');
     }
+
+    public function siswakelas()
+    {
+        return $this->belongsTo(ClassKelas::class, 'kelas_id', 'id');
+    }
+
+    public function absensi(){
+        return $this->hasMany(cobadetabs::class, 'id_siswa', 'id');
+    }
+    
+    public function pelanggaran(){
+        return $this->hasMany(detailpelanggaran::class, 'id_siswa', 'id');
+    }
+
 }

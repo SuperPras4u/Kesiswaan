@@ -25,70 +25,70 @@
                                 value="{{ $item->id }}">{{ $loop->iteration }}</td>
                         <td><span>{{ $item->siswaa->nama_siswa }}</span><input type="hidden" name="id_siswa[]"
                                 value="{{ $item->id_siswa }}" class="no-border"> </td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam1[]">
+                        <td><select aria-label="Default select example" name="jam1[]">
                                 <option selected>{{ $item->jam1 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam2[]">
+                        <td><select aria-label="Default select example" name="jam2[]">
                                 <option selected>{{ $item->jam2 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam3[]">
+                        <td><select aria-label="Default select example" name="jam3[]">
                                 <option selected>{{ $item->jam3 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam4[]">
+                        <td><select aria-label="Default select example" name="jam4[]">
                                 <option selected>{{ $item->jam4 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam5[]">
+                        <td><select aria-label="Default select example" name="jam5[]">
                                 <option selected>{{ $item->jam5 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam6[]">
+                        <td><select aria-label="Default select example" name="jam6[]">
                                 <option selected>{{ $item->jam6 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam7[]">
+                        <td><select aria-label="Default select example" name="jam7[]">
                                 <option selected>{{ $item->jam7 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam8[]">
+                        <td><select aria-label="Default select example" name="jam8[]">
                                 <option selected>{{ $item->jam8 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam9[]">
+                        <td><select aria-label="Default select example" name="jam9[]">
                                 <option selected>{{ $item->jam9 }}</option>
                                 <option>S</option>
                                 <option>I</option>
                                 <option>A</option>
                                 <option>N</option>
                             </select></td>
-                        <td><select class="form-select" aria-label="Default select example" name="jam10[]">
+                        <td><select aria-label="Default select example" name="jam10[]">
                                 <option selected>{{ $item->jam10 }}</option>
                                 <option>S</option>
                                 <option>I</option>

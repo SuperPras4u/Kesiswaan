@@ -3,17 +3,17 @@
 <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
 
 <style>
-    #cards{
+    /* #cards{
         margin-left: 5%; 
         margin-right: 5%;
         margin-top: 5%; 
         /* align-items: center; */
-    }
+    /* } */ 
 
-    #outputContainer{
+    /* #outputContainer{
         margin-left: 5%; 
         margin-right: 5%;
-    }
+    } */
 
     /* .kol{
         text-align: center;
@@ -46,6 +46,7 @@
                     <option value="absensi">absensi</option>
                     <option value="pelanggaran">pelanggaran</option>
                     <option value="showdata">showdata</option>
+                    <option value="kenaikan">kelulusan</option>
             </div>
             </select>
             <div class="mb-3">
@@ -58,7 +59,12 @@
 </div>
 </div>
 <br>
-<div id="outputContainer"></div>
+ <div class="card"> 
+    <div class="card-body">
+        <div id="outputContainer"></div>
+    </div>
+ </div>
+ <br>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

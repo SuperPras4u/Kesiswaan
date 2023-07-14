@@ -11,13 +11,8 @@ class cobasis extends Model
 
     protected $fillable = ['id', 'nama_siswa' , 'id_kelas' ];
 
-    public function absensi(){
-        return $this->hasMany(cobadetabs::class, 'id_siswa', 'id');
-    }
+ 
 
-    public function pelanggaran(){
-        return $this->hasMany(detailpelanggaran::class, 'id_siswa', 'id');
-    }
     public function kelaskesiswa()
     {
         return $this->belongsTo(cobakelas::class, 'id_kelas', 'id');

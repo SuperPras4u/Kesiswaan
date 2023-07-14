@@ -42,6 +42,16 @@
                             <label for="exampleInputPassword1">Nama Kelas</label>
                             <input type="Nama" name="nama_kelas" class="form-control" id="exampleInputNama" placeholder="Nama">
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Tingkat</label>
+                            <select id="tindakanSelect" class="form-select" aria-label="Default select example" name="identitas">
+                                <option value="">Pilih Tingkatan</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>   
+                        </div>
+                        <br>
                         
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>

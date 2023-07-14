@@ -1,4 +1,4 @@
-<p>{{ $kelas->nama_kelas }}</p>
+<p>{{ $kelas->Nama_Kelas }}</p>
 <div class="col-4">
     <div class="input-group">
         <input type="search" id="searchInput" class="form-control" aria-labelledby="passwordHelpBlock" placeholder="search......" >
@@ -18,9 +18,6 @@
         text-align: center;
     }
 
-    .col-4{
-        margin-left: 5%;
-    }
 </style>
 
 
@@ -41,8 +38,8 @@
                         @foreach ($siswa as $item)
                             <tr>
                                 <td scope="row">{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama_siswa }}</td>
-                                <td class="kol"><a href="{{ url('/siswa-'.$item->nama_siswa) }}">?</a></td>
+                                <td>{{ $item->Nama_Siswa }}</td>
+                                <td class="kol"><a href="{{ url('/siswa-'.$item->Nama_Siswa) }}">?</a></td>
                             </tr>
                         @endforeach
                     </tbody>

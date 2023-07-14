@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\detailpelanggaran;
+use App\Models\pelanggaran;
 use Illuminate\Http\Request;
 
-class pelanggarancontroller extends Controller
+class PelanggaranController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function pelanggaran()
     {
-        //
+        $pelanggaran = pelanggaran::all();
+        return view('pelanggaran.pelanggaransiswa', compact('pelanggaran'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function tambahpelanggaran(Request $request)
     {
-        //
+        //dd($request->all());
+        pelanggaran::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -30,28 +29,26 @@ class pelanggarancontroller extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function detailpelanggaran(Request $request)
     {
-        //
-    }
+    // Validasi input
+    $validatedData = $request->validate([
+        'id_siswa' => 'required',
+        'id_pelanggaran' => 'required',
+        // tambahkan validasi untuk field lainnya
+    ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+    // Buat data baru
+    $data = new detailpelanggaran();
+    $data->id_siswa = $request->input('id_siswa');
+    $data->id_pelanggaran = $request->input('id_pelanggaran');
+    // set nilai field lainnya jika ada
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+    // Simpan data ke database
+    $data->save();
+
+    // Kirim respon
+    return redirect()->back()->with('success', 'Data berhasil disimpan');
     }
 
     /**

@@ -30,14 +30,15 @@ return new class extends Migration
             $table->bigInteger("NIK_Siswa")->unique();
             $table->string("no_akta")->unique();
             $table->string("tinggal_dengan", 11)->default("Orang Tua");
-            $table->integer("Tinggi_Badan")->default(0);
-            $table->integer("Berat_badan")->default(0);
+            $table->string("Tinggi_Badan")->default(0);
+            $table->string("Berat_badan")->default(0);
+            $table->string("Jarak_Rumah")->default(0);
             // $table->string("absensi")->default("H");
             // $table->bigInteger("Poin_Pelanggaran")->default(0);
-            $table->string("Foto")->unique();
+            $table->string("Foto")->unique()->nullable();
             // $table->string("Kelas"); (id siswa di letakan pada table kelas agar relasi menjadi satu kelas banyak siswa)
             // $table->string("Id_Jurusan", 50); (id_siswa di table jurusan agar relasi menjadi one to many)
-
+            
             //alamat
             $table->string("Alamat")->nullable();
             $table->string("jalan");
@@ -46,12 +47,12 @@ return new class extends Migration
             $table->string("RW");
             $table->string("Kecamatan");
             $table->string("Kabupaten");
-            $table->string("Provinsi");
+            $table->string("Provinsi")->nullable();
             $table->integer("Kode_Pos")->nullable();
             //data keluarga
             $table->string("Status_dalam_Keluarga")->nullable()->default("Anak_Kandung");
             $table->string("anak_ke");
-            $table->integer("Jumlah_Saudara");
+            $table->string("Jumlah_Saudara");
             $table->string("Pleno")->nullable();
 
             $table->timestamps();

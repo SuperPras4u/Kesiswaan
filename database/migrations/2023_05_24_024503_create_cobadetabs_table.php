@@ -16,16 +16,8 @@ return new class extends Migration
             $table->date('tanggal_absen');
             $table->integer('id_kelas');
             $table->bigInteger('id_siswa');
-            $table->string('jam1');
-            $table->string('jam2');
-            $table->string('jam3');
-            $table->string('jam4');
-            $table->string('jam5');
-            $table->string('jam6');
-            $table->string('jam7');
-            $table->string('jam8');
-            $table->string('jam9');
-            $table->string('jam10');
+            $table->integer('id_mapel');
+            $table->string('kehadiran');
             $table->timestamps();
         });
     }

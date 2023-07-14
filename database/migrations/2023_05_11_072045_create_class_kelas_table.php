@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('class_kelas', function (Blueprint $table) {
             $table->id();
             $table->string('Nama_Kelas');
-            $table->integer('id_jurusan');
-            $table->integer('id_guru');
+            $table->integer('id_jurusan')->nullable();
+            $table->integer('id_guru')->nullable();
             $table->timestamps();
         });
     }

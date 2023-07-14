@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cobases', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_kelas');
+            $table->integer('id_kelas')->nullable();
             $table->string('nama_siswa');
             $table->timestamps();
         });

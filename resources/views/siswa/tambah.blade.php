@@ -8,11 +8,15 @@
                     <div class="col-6">
                         <h4>Tambah Data</h4>
                     </div>
+
+                   
+                    
                     <div class="col-6" align="right">
-                        <button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <i class="mdi mdi-file-excel"></i>
-                        </button>
+                        <form action="{{ route('import.excel') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="file">
+                        <button type="submit">Import</button>
+                    </form>
                     </div>
 
                 </div>

@@ -29,7 +29,7 @@ class ClassKelasController extends Controller
         $class->Nama_Kelas = $request->input('Nama_Kelas', 'id_jurusan', 'id_guru');
         $class->save();
 
-        return redirect()->back();
+        return redirect()->back(); 
     }
 
     public function destroy($id)

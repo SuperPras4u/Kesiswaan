@@ -9,16 +9,203 @@
 </style>
 
 <p>{{ $kelas->nama_kelas }}</p>
+<div id="tanggal">{{ $tanggal }}</div>
+
+
+{{-- <select aria-label="Default select example" id="jam10">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+
+<select aria-label="Default select example" id="jam11">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+
+<select aria-label="Default select example" id="jam12">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+
+<select aria-label="Default select example" id="jam13">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+
+<select aria-label="Default select example" id="jam14">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select> --}}
+
 
 <form action="tambahabsen" method="POST" enctype="multipart/form-data">
     @csrf
     <table class="table table-bordered">
         <thead>
-          
             <tr>
                 <th>No. Siswa</th>
                 <th>Nama Siswa</th>
-                {{-- <th>tanggal</th> --}}
+                @foreach ($jadwal as $item)
+                    <th>
+                        <span>{{ $item->id_mapel }}</span>
+                        <input type="hidden" name="id_mapel[]" value="{{ $item->id_mapel }}">
+                    </th>
+                @endforeach
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($siswa as $item)
+                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <span>{{ $item->Nama_Siswa }}</span>
+                        <input type="hidden" name="id_siswa[]" value="{{ $item->id }}" class="no-border">
+                    </td>
+                    @foreach ($jadwal as $jadwalItem)
+                        <td>
+                            <select aria-label="Default select example" name="kehadiran[]">
+                                <option selected>H</option>
+                                <option>S</option>
+                                <option>I</option>
+                                <option>A</option>
+                                <option>N</option>
+                            </select>
+                        </td>
+                    @endforeach
+                    <input type="hidden" value="{{ $tanggal_absen }}" name="tanggal_absen[]" readonly>
+                    <input type="hidden" value="{{ $kelasId }}" name="id_kelas[]" readonly>
+                    
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Success</button>
+</form>
+
+
+{{-- <form action="tambahabsen" method="POST" enctype="multipart/form-data">
+    @csrf
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <th>No. Siswa</th>
+                <th>Nama Siswa</th>
+                @foreach ($jadwal as $item)
+                <th name> <span>{{ $item->id_mapel }} </span>
+                    <input type="text" name="id_mapel[]" value="{{ $item->id_mapel }}">
+                </th>
+            @endforeach
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($siswa as $item)
+                <tr>
+                    <th scope="row">1</th>
+                    <td><span>{{ $item->Nama_Siswa }}</span><input type="hidden" name="id_siswa[]"
+                            value="{{ $item->id }}" class="no-border"> </td>
+                 @foreach ($jadwal as $jadwalItem)
+                    <td>
+                        <select aria-label="Default select example" name="kehadiran[]">
+                            <option selected>H</option>
+                            <option>S</option>
+                            <option>I</option>
+                            <option>A</option>
+                            <option>N</option>
+                        </select>
+                    </td>
+                @endforeach
+
+                    <input type="hidden" value="{{ $tanggal_absen }}" name="tanggal_absen[]" readonly>
+
+                    <input type="hidden" value="{{ $kelasId }}" name="id_kelas[]" readonly>
+                </tr>
+            @endforeach
+          
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Success</button>
+</form> --}}
+
+
+<!-- resources/views/items/index.blade.php -->
+{{-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items</title>
+    <style>
+        .container {
+            display: flex;
+        }
+        .item {
+            margin-right: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        @foreach($items as $item)
+            <div class="item">{{ $item->name }}</div>
+        @endforeach
+    </div>
+</body>
+</html> --}}
+
+{{-- 
+<style>
+    .no-border {
+        border: none;
+    }
+</style>
+
+<p>{{ $kelas->nama_kelas }}</p>
+<div id="tanggal">{{ $tanggal }}</div>
+
+
+<select aria-label="Default select example" id="jam10">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+
+<select aria-label="Default select example" id="jam11">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+
+<select aria-label="Default select example" id="jam12">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+
+<select aria-label="Default select example" id="jam13">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+
+<select aria-label="Default select example" id="jam14">
+    <option value="">Pilih</option>
+    <option value="Tampilkan">Tampilkan</option>
+</select>
+
+<form action="tambahabsen" method="POST" enctype="multipart/form-data">
+    @csrf
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <th>No. Siswa</th>
+                <th>Nama Siswa</th>
                 <th>1</th>
                 <th>2</th>
                 <th>3</th>
@@ -29,14 +216,19 @@
                 <th>8</th>
                 <th>9</th>
                 <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($siswa as $item)
                 <tr>
                     <th scope="row">1</th>
-                    <td><span>{{ $item->nama_siswa }}</span><input type="hidden" name="id_siswa[]" value="{{ $item->id }}" class="no-border"> </td>
-                    <td><select  aria-label="Default select example" name="jam1[]">
+                    <td><span>{{ $item->Nama_Siswa }}</span><input type="hidden" name="id_siswa[]"
+                            value="{{ $item->id }}" class="no-border"> </td>
+                    <td><select aria-label="Default select example" name="jam1[]">
                             <option selected>H</option>
                             <option>S</option>
                             <option>I</option>
@@ -99,18 +291,47 @@
                             <option>A</option>
                             <option>N</option>
                         </select></td>
-                    <td><select aria-label="Default select example" name="jam10[]">
+                    <td><select aria-label="Default select example" name="jam10[]" class="jam10">
                             <option selected>H</option>
                             <option>S</option>
                             <option>I</option>
                             <option>A</option>
                             <option>N</option>
                         </select></td>
-                       
-                            <input type="hidden" value="{{ $tanggal_absen }}" name="tanggal_absen[]" readonly>
-                    
-                            <input type="hidden" value="{{ $kelasId }}" name="id_kelas[]" readonly>
-                    
+                    <td><select aria-label="Default select example" name="jam11[]" class="jam11">
+                            <option selected>H</option>
+                            <option>S</option>
+                            <option>I</option>
+                            <option>A</option>
+                            <option>N</option>
+                        </select></td>
+                    <td><select aria-label="Default select example" name="jam12[]" class="jam12">
+                            <option selected>H</option>
+                            <option>S</option>
+                            <option>I</option>
+                            <option>A</option>
+                            <option>N</option>
+                        </select></td>
+                    <td><select aria-label="Default select example" name="jam13[]" class="jam13">
+                            <option selected>H</option>
+                            <option>S</option>
+                            <option>I</option>
+                            <option>A</option>
+                            <option>N</option>
+                        </select></td>
+
+                        <td><select aria-label="Default select example" name="jam14[]" class="jam14">
+                            <option selected>H</option>
+                            <option>S</option>
+                            <option>I</option>
+                            <option>A</option>
+                            <option>N</option>
+                        </select></td>
+
+                    <input type="hidden" value="{{ $tanggal_absen }}" name="tanggal_absen[]" readonly>
+
+                    <input type="hidden" value="{{ $kelasId }}" name="id_kelas[]" readonly>
+
 
 
 
@@ -125,180 +346,60 @@
 
 
 
-{{-- <table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th>skm</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($cobasis as $item)
-            <tr>
-                <th scope="row">1</th>
-                <td>{{ $item->nama_siswa }}</td>
-                <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal-{{ $item->id }}" id="tombol">
-                        Launch demo modal
-                    </button></td>
-
-            </tr>
-        @endforeach
-
-    </tbody>
-</table> --}}
-
-
-{{-- modal --}}
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-{{-- @foreach ($cobasis as $item)
-    <div class="modal fade" id="exampleModal-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="tambahjurusan" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Tanggal</label>
-                            <input  name="tanggal" class="form-control tanggal"
-                                id="tanggal-{{ $item->id }}" placeholder="" value="{{ $tgl_tran }}" readonly>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Nama</label>
-                            <input type="Nama" name="Nama" class="form-control" id="exampleInputNama"
-                                placeholder="Nama" value="{{ $item->nama_siswa }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Hadir</label>
-                            <input type="Nama" name="hadir" class="form-control hadir"
-                                id="hadir-{{ $item->id }}" placeholder="" value="" readonly>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Ijin</label>
-                            <input type="Nama" name="ijin" class="form-control" id="ijin-{{ $item->id }}"
-                                placeholder="Nama" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">sakit</label>
-                            <input type="Nama" name="sakit" class="form-control"
-                                id="sakit-{{ $item->id }}" placeholder="Nama" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">alpha</label>
-                            <input type="Nama" name="alpha" class="form-control"
-                                id="alpha-{{ $item->id }}" placeholder="Nama" value="">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-@endforeach --}}
-
-{{-- endmodal --}}
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.jam10').prop('disabled', true);
+        $('.jam11').prop('disabled', true);
+        $('.jam12').prop('disabled', true);
+        $('.jam13').prop('disabled', true);
+        $('.jam14').prop('disabled', true);
 
-{{-- <script>
-   $(document).ready(function() {
-    // Loop through each cobasis item
-    @foreach ($cobasis as $item)
-        // Get the unique ID for this item
-        var itemId = '{{ $item->id }}';
-
-        // Build the unique IDs for the elements using the item ID
-        var tanggalInputId = 'tanggal-' + itemId;
-        var hadirInputId = 'hadir-' + itemId;
-        var ijinInputId = 'ijin-' + itemId;
-        var sakitInputId = 'sakit-' + itemId;
-        var alphaInputId = 'alpha-' + itemId;
-
-        // Get the values from the corresponding elements using the unique IDs
-        var tanggalInput = $('#' + tanggalInputId).val();
-        var tanggalObj = new Date(tanggalInput);
-        var hari = tanggalObj.getDay();
-        var hadirvalue = 0;
-
-        if (hari === 1 || hari === 3 || hari === 4) {
-            hadirvalue = 12;
-        } else if (hari === 2 || hari === 5 || hari === 6) {
-            hadirvalue = 10;
-        }
-        $('#' + hadirInputId).val(hadirvalue);
-
-        $("#" + ijinInputId + ", #" + sakitInputId + ", #" + alphaInputId).on("input", function() {
-            var ijin = parseInt($("#" + ijinInputId).val()) || 0;
-            var sakit = parseInt($("#" + sakitInputId).val()) || 0;
-            var alpha = parseInt($("#" + alphaInputId).val()) || 0;
-
-            var totalHadir = hadirvalue - ijin - sakit - alpha;
-
-            // Update the corresponding hadir input element with the calculated value
-            $('#' + hadirInputId).val(totalHadir);
+        $('#jam10').change(function() {
+            if ($(this).val() === 'Tampilkan') {
+                $('.jam10').prop('disabled', false);
+            } else {
+                $('.jam10').prop('disabled', true);
+            }
         });
-    @endforeach
-});
 
+
+
+        $('#jam11').change(function() {
+            if ($(this).val() === 'Tampilkan') {
+                $('.jam11').prop('disabled', false);
+            } else {
+                $('.jam11').prop('disabled', true);
+            }
+        });
+
+        $('#jam12').change(function() {
+            if ($(this).val() === 'Tampilkan') {
+                $('.jam12').prop('disabled', false);
+            } else {
+                $('.jam12').prop('disabled', true);
+            }
+        });
+
+        $('#jam13').change(function() {
+            if ($(this).val() === 'Tampilkan') {
+                $('.jam13').prop('disabled', false);
+            } else {
+                $('.jam13').prop('disabled', true);
+            }
+        });
+
+        $('#jam14').change(function() {
+            if ($(this).val() === 'Tampilkan') {
+                $('.jam14').prop('disabled', false);
+            } else {
+                $('.jam14').prop('disabled', true);
+            }
+        });
+    });
 </script> --}}
 
 
-{{-- @foreach ($cobasis as $tampil)
-<div class="modal fade" id="modaltampil-{{ $tampil->id }}" tabindex="-1"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus Data Kategori</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form action="tambahjurusan" method="POST" enctype="multipart/form-data">
-                @csrf
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Nama</label>
-                        <input type="Nama" name="Nama_Jurusan" class="form-control" id="exampleInputNama" placeholder="Nama" value="{{ $tampil->nama_siswa }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Hadir</label>
-                      <input type="Nama" name="Nama_Jurusan" class="form-control" id="exampleInputNama" placeholder="Nama">
-                        
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Ijin</label>
-                      <input type="Nama" name="Nama_Jurusan" class="form-control" id="exampleInputNama" placeholder="Nama">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">sakit</label>
-                      <input type="Nama" name="Nama_Jurusan" class="form-control" id="exampleInputNama" placeholder="Nama">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">alpha</label>
-                      <input type="Nama" name="Nama_Jurusan" class="form-control" id="exampleInputNama" placeholder="Nama">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-               
-            </div>
-        
-    </div>
-</div>
-@endforeach --}}
+

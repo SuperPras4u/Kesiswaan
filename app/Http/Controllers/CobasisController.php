@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClassKelas;
 use App\Models\cobadetabs;
 use App\Models\cobakelas;
 use App\Models\cobasis;
+use App\Models\jadwal;
 use App\Models\pelanggaran;
+use App\Models\siswa;
 use Illuminate\Http\Request;
 
 class CobasisController extends Controller
@@ -60,7 +63,7 @@ class CobasisController extends Controller
 
     public function tampil()
     {
-        $cobasis = cobasis::all();
+        $cobasis = siswa::all();
         $kelass = cobakelas::all();
         return view('pelanggaran.tampil', compact('cobasis', 'kelass'));
     }
@@ -77,7 +80,7 @@ class CobasisController extends Controller
 
                 switch ($tindakan) {
                     case 'cek_absensi':
-                        $absensi = cobadetabs::where('id_kelas', $kelasId)
+                        $absensi = cobadetabs::where('kelas_id', $kelasId)
                             ->where('tanggal_absen', $tanggal)
                             ->get();
                         // Tampilkan formulir cek absensi berdasarkan kelas, ID kelas, dan data absensi
@@ -86,24 +89,45 @@ class CobasisController extends Controller
 
                     case 'absensi':
                         $tanggal_absen = date("Y-m-d");
-                        $siswa = cobasis::where('id_kelas', $kelasId)
+                        $tanggal = date("l, d F Y");
+                        $jadwal = jadwal::all();
+                        $siswa = siswa::where('kelas_id', $kelasId)
                             ->get();
                         // Tampilkan formulir absensi berdasarkan kelas, ID kelas, siswa, dan tanggal absen
-                        return view('form.create_absensi', ['kelas' => $kelas, 'kelasId' => $kelasId, 'siswa' => $siswa, 'tanggal_absen' => $tanggal_absen]);
+                        return view('form.create_absensi', ['kelas' => $kelas, 'kelasId' => $kelasId, 'siswa' => $siswa, 'tanggal_absen' => $tanggal_absen, 'tanggal' => $tanggal, 'jadwal' => $jadwal]);
                         break;
 
                     case 'pelanggaran':
-                        $siswa = cobasis::where('id_kelas', $kelasId)
-                        ->get();
+                        $siswa = siswa::where('kelas_id', $kelasId)
+                            ->get();
                         $pelanggaran = pelanggaran::all();
                         // Tampilkan formulir tindakan lain berdasarkan kelas dan ID kelas
                         return view('form.create_pelanggaran', ['kelas' => $kelas, 'kelasId' => $kelasId, 'siswa' => $siswa, 'pelanggaran' => $pelanggaran]);
                         break;
                     case 'showdata':
-                        $siswa = cobasis::where('id_kelas', $kelasId)
+                        $siswa = siswa::where('kelas_id', $kelasId)
                             ->get();
                         // Tampilkan formulir tindakan lain berdasarkan kelas dan ID kelas
                         return view('form.show_data', ['kelas' => $kelas, 'kelasId' => $kelasId, 'siswa' => $siswa]);
+                        break;
+                    case 'kenaikan':
+                        $siswa = siswa::where('id_kelas', $kelasId)->get();
+                        $tingkatan = $kelas->identitas;
+                        $datakelas = '';
+    
+                        if ($tingkatan == '10') {
+                            $datakelas = ClassKelas::where('identitas', '11')->get();
+                        } elseif ($tingkatan == '11') {
+                            $datakelas = ClassKelas::where('identitas', '12')->get();
+                        }
+    
+                        // Tampilkan formulir tindakan lain berdasarkan kelas, ID kelas, siswa, dan kelas berikutnya
+                        return view('form.kenaikan-siswa', [
+                            'kelas' => $kelas,
+                            'kelasId' => $kelasId,
+                            'siswa' => $siswa,
+                            'datakelas' => $datakelas
+                        ]);
                         break;
 
                     // Tambahkan case untuk tindakan tambahan jika diperlukan
@@ -116,4 +140,28 @@ class CobasisController extends Controller
         }
     }
 
+    public function kenaikan(Request $request)
+    {
+        $data = $request->all();
+       
+        if (!empty($request['id'])) {
+        foreach ($request['id'] as $item => $value) {
+            $datasiswa = siswa::find($data['id'][$item]); // Temukan data absen berdasarkan ID absen yang dikirimkan
+            // dd($request->all());
+            $datasiswa->id = $data['id'][$item];
+            $datasiswa->id_kelas = $data['id_kelas'][$item];
+            $datasiswa->save();
+        }
+    }
+    return redirect()->back();
 }
+
+
+    public function alumni(){
+        return view('cobases.alumni');
+    }
+    
+    
+}
+
+

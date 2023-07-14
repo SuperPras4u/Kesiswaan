@@ -18,7 +18,7 @@ class cobadetabs extends Model
 
     public function siswaa()
     {
-        return $this->belongsTo(cobasis::class, 'id_siswa', 'id');
+        return $this->belongsTo(siswa::class, 'id_siswa', 'id');
     }
 
     // public static $rules = [

@@ -82,7 +82,7 @@
         <?php $totalN = 0; ?>
         <?php $jamS = []; ?>
                 @foreach ($datasiswa->absensi as $absensi)
-                    <?php $jamColumns = ['jam1', 'jam2', 'jam3', 'jam4', 'jam5', 'jam6', 'jam7', 'jam8', 'jam9', 'jam10'];
+                    <?php $jamColumns = ['jam1', 'jam2', 'jam3', 'jam4', 'jam5', 'jam6', 'jam7', 'jam8', 'jam9', 'jam10', 'jam11', 'jam12', 'jam13', 'jam14'];
                     
                     foreach ($jamColumns as $jamColumn) {
                         if ($absensi->{$jamColumn} === 'H') {
@@ -217,9 +217,9 @@
                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
                                 class="rounded-circle" width="150">
                             <div class="mt-3">
-                                <h4>{{ $datasiswa->nama_siswa }}</h4>
-                                <p class="text-secondary mb-1">NIS</p>
-                                <p class="text-muted font-size-sm">NISN</p>
+                                <h4>{{ $datasiswa->Nama_Siswa }}</h4>
+                                <p class="text-secondary mb-1"> NIS : {{ $datasiswa->NIS }}</p>
+                                <p class="text-muted font-size-sm"> NISN : {{ $datasiswa->NISN }}</p>
                             </div>
                         </div>
                     </div>
@@ -285,7 +285,7 @@
                                 <h6 class="mb-0">Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $datasiswa->nama_siswa }}
+                                {{ $datasiswa->Nama_Siswa }}
                             </div>
                         </div>
                         <hr>
@@ -294,7 +294,7 @@
                                 <h6 class="mb-0">Class</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                fip@jukmuh.al
+                                {{ $datasiswa->siswakelas->Nama_Kelas }}
                             </div>
                         </div>
                         <hr>
@@ -312,7 +312,7 @@
                                 <h6 class="mb-0">Mother's Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                (320) 380-4539
+                                {{ $datasiswa->orangTua->Nama_Ibu }}
                             </div>
                         </div>
                         <hr>
@@ -321,7 +321,7 @@
                                 <h6 class="mb-0">Father's Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                                {{ $datasiswa->orangTua->Nama_Ayah }}
                             </div>
                         </div>
                         {{-- <hr>
@@ -427,12 +427,14 @@
                 <div class="modal-body">
                     @if (count($datasiswa->pelanggaran) > 0)
                         @foreach ($datasiswa->pelanggaran as $item)
-                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+
+                        <div><p><span>{{ $item->pelanggarannama->nama_pelanggaran }}</span> pada tanggal {{ $item->created_at->format('Y-m-d') }} dan mendapatkan <span class="poin">{{ $item->pelanggarannama->poin_pelanggaran }}</span> pelanggaran</p></div>
+                            {{-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h8 class="mb-0">{{ $item->pelanggarannama->nama_pelanggaran }}</h8>
                                 <span class="text-secondary poin">{{ $item->pelanggarannama->poin_pelanggaran }}
                                     Poin</span>
                                 <span class="text-secondary">{{ $item->created_at->format('Y-m-d') }}</span>
-                            </li>
+                            </li> --}}
                         @endforeach
                     @else
                         <p>anak baik</p>

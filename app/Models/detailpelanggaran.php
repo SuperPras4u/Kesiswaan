@@ -10,7 +10,7 @@ class detailpelanggaran extends Model
     use HasFactory;
     public function pelanggaransiswa()
     {
-        return $this->belongsTo(cobasis::class, 'id_siswa', 'id');
+        return $this->belongsTo(siswa::class, 'id_siswa', 'id');
     }
 
     public function pelanggarannama()

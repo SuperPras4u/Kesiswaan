@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\cobadetabs;
 use App\Models\cobakelas;
 use App\Models\cobasis;
+use App\Models\siswa;
 use Illuminate\Http\Request;
 
 class CobakelasController extends Controller
@@ -22,9 +23,9 @@ class CobakelasController extends Controller
         return redirect()->back();
     }
 
-    public function detailsiswa($nama_siswa)
+    public function detailsiswa($Nama_Siswa)
     {
-        $datasiswa = cobasis::where('nama_siswa', $nama_siswa)
+        $datasiswa = siswa::where('Nama_Siswa', $Nama_Siswa)
             ->with('absensi')->with('pelanggaran')
             ->first();
 

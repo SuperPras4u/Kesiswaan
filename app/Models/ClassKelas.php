@@ -11,13 +11,17 @@ class ClassKelas extends Model
     protected $guarded = [];
 
     public function Jurusan()
-{
-    return $this->belongsTo(Jurusan::class, 'id_jurusan');
-}
+    {
+        return $this->belongsTo(Jurusan::class, 'id_jurusan');
+    }
 
-public function guru()
-{
-    return $this->belongsTo(Guru::class, 'id_guru');
-}
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, 'id_guru');
+    }
+
+    public function datakelas(){
+        return $this->hasMany(siswa::class, 'kelas_id', 'id');
+    }
 
 }
