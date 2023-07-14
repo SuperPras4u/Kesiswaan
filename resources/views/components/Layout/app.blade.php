@@ -17,8 +17,10 @@
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
+    <link rel="shortcut icon" href="{{asset('images/tutwurihandayani.png')}}" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
     <!-- End plugin css for this page -->
 </head>
 
@@ -36,6 +38,7 @@
                     {{-- end navbar --}}
                     {{ $slot }}
                 </div>
+
                 <x-layout.footer />
             </div>
         </div>
@@ -70,7 +73,12 @@
     <!-- End plugin js for this page -->
     <!-- Custom js for this page-->
     <script src="{{asset('js/dashboard.js')}}"></script>
-    <link rel="script" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js">
+    <script src="{{ asset('js/time.js') }}"></script>
+
+    <link rel="script" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- End custom js for this page-->
 
     @stack('jssj')
